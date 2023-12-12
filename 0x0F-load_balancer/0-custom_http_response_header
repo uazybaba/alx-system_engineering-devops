@@ -1,26 +1,27 @@
 #!/usr/bin/env bash
-# configures a new Ubuntu machine
+# Configuring ubuntu new machine
 
-# Install nginx on web-01 server
-apt-get -y update
-apt-get -y install nginx
+#Installing and updating Nginx
+sudo apt-get update
+sudo apt-get install nginx -y
 
-# Create a firts index.html page
-echo "Hello World!" > /var/www/html/index.html
+#Creating index.html page
+echo "Hello World!" | sudo tee /var/www/html/index.html
 
-# Add to the nginx configuration file a redirection to another page
+# Performing a redirection
 line_replacement="server_name -;\n\trewrite ^\/redirect_me https:\/\/github.com\/donbless27 permanent;"
 sudo sed -i "s/server_name -;/$line_replacement/" /etc/nginx/sites-enabled/default
 
-# Add to the nginx configuration file a error page 404
+# Creating an error page
 line_replacement="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
 sudo sed -i "s/listen 80 default_server;/$line_replacement/" /etc/nginx/sites-enabled/default
 
-# Add custom response header to know the server name 
-sudo sed -i "/server_name -/a add_header X-Served-By $HOSTNAME;" /etc/niginx/sites-enabled/default
 
-#Check for nginx error
+# HTTP custom response header
+sudo sed -i "/server_name -/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+
+# Testing Nginx 
 sudo nginx -t
 
-#Restart nginx
-service nginx restart
+# Restarting Nginx
+sudo service nginx restart 
