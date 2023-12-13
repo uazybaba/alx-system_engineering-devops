@@ -1,27 +1,11 @@
 #!/usr/bin/env bash
-# Configuring ubuntu new machine
+# returns a custom header on request
 
-#Installing and updating Nginx
-sudo apt-get update
-sudo apt-get install nginx -y
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
-#Creating index.html page
+sudo sed -i "47i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
 echo "Hello World!" | sudo tee /var/www/html/index.html
+echo "Ceci n'est pas une page" > sudo /var/www/html/404.html
 
-# Performing a redirection
-line_replacement="server_name -;\n\trewrite ^\/redirect_me https:\/\/github.com\/donbless27 permanent;"
-sudo sed -i "s/server_name -;/$line_replacement/" /etc/nginx/sites-enabled/default
-
-# Creating an error page
-line_replacement="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
-sudo sed -i "s/listen 80 default_server;/$line_replacement/" /etc/nginx/sites-enabled/default
-
-
-# HTTP custom response header
-sudo sed -i "/server_name -/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
-
-# Testing Nginx 
-sudo nginx -t
-
-# Restarting Nginx
-sudo service nginx restart 
+sudo service nginx start 
