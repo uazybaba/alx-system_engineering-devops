@@ -5,8 +5,8 @@
 </div>
 
 **DevOps Engineer and System Engineer are two distinct roles with different areas of focus, responsibilities, and skills required.**
-<div align="center"
-<img src="https://media.licdn.com/dms/image/C5112AQH3OtLM8QcClA/article-cover_image-shrink_423_752/0/1520107107926?e=1711584000&v=beta&t=FkAAMV5lrjQUQCRHMkIyNDSWwm1WG4PegMmKBmdkLOg" width ="500">
+<div align="center">
+<img src="https://media.licdn.com/dms/image/C5112AQH3OtLM8QcClA/article-cover_image-shrink_423_752/0/1520107107926?e=1711584000&v=beta&t=FkAAMV5lrjQUQCRHMkIyNDSWwm1WG4PegMmKBmdkLOg" width ="450">
 </div>
 
 **A System Engineer is responsible for designing, implementing, and maintaining an organization’s computer systems and infrastructure, including hardware, software, and network components. They are responsible for ensuring the reliability, security, and scalability of the systems they manage. They may also be involved in troubleshooting and resolving issues that arise in the systems they manage.**
