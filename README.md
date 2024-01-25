@@ -1,7 +1,7 @@
- System Engineering Devops
+                                    System Engineering Devops
 
 <div align="center">
-<img src="https://www.scnsoft.com/blog-pictures/itsm/how-can-a-system-administrator-turn-into-a-devops-engineer.png" width ="200">
+<img src="https://www.scnsoft.com/blog-pictures/itsm/how-can-a-system-administrator-turn-into-a-devops-engineer.png" width ="500">
 </div>
 
 
